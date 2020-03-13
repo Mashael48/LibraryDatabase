@@ -1,0 +1,73 @@
+CREATE TABLE BOOK (
+ISBN CHAR(10) not null,
+Copies int DEFAULT 0,
+Titles varchar(45) not null,
+Publish_Date DATE,
+PublisherName varchar(50),
+
+CONSTRAINT isbnPK
+primary key (ISBN) );
+
+
+CREATE TABLE MEMBERS (
+ID CHAR(5) not null,
+Phone char(10),
+
+CONSTRAINT idPK
+primary key (ID) );
+
+
+CREATE TABLE AUTHOR (
+ID CHAR(5) not null,
+Fname varchar(20) not null, Mname varchar(20), Lname varchar(20) not null,
+City varchar(45),
+Street varchar(30),
+ZIP varchar(4),
+Phone char(10),
+BOOK_ISBN CHAR(10) not null,
+
+CONSTRAINT authPK
+primary key (ID, BOOK_ISBN),
+CONSTRAINT authFK
+foreign key (BOOK_ISBN) references BOOK(ISBN) );
+
+
+CREATE TABLE PUBLISHER (
+Pname varchar(50) not null,
+Phone char(10),
+City varchar(45),
+Street varchar(30),
+ZIP varchar(4),
+
+CONSTRAINT pnamePK
+primary key (Pname) );
+
+
+CREATE TABLE HAS (
+Borrow_Date DATE not null,
+Borrow_Return DATE,
+MemberID CHAR(5) not null,
+BOOK_ISBN CHAR(10),
+
+CONSTRAINT hasPK
+primary key (MemberID, BOOK_ISBN),
+CONSTRAINT memFK
+foreign key (MemberID) references MEMBERS(ID),
+CONSTRAINT bkFK
+foreign key (BOOK_ISBN) references BOOK(ISBN) );
+
+
+CREATE TABLE WRITE_ (
+AuthorID CHAR(5) not null,
+BOOK_ISBN CHAR(10),
+
+CONSTRAINT writePK
+primary key (AuthorID, BOOK_ISBN),
+CONSTRAINT authWFK
+foreign key (AuthorID) references author(ID),
+CONSTRAINT bkWauthorFK 
+foreign key (BOOK_ISBN) references BOOK(ISBN) );
+
+
+
+

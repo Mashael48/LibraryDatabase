@@ -1,0 +1,66 @@
+
+-- INSERT INTO book
+-- value ("1234567890", 3, "DDD",'1999-12-22', "jarir");
+
+-- select * from book, author where book.ISBN = author.BOOK_ISBN AND author.ID = "11111";  
+
+-- INSERT INTO AUTHOR  
+-- VALUES (22222, "Mesh", "Mmesh", "Lmesh", "TT", "FF", 324, "0987654321","1234567890" ); 
+
+-- INSERT INTO members
+-- value ("33333", "0533333333");
+
+-- INSERT INTO publisher
+-- value ("Alfarid", "0456343827", "ACity", "AStreet", 675);
+
+-- update book
+-- set Publish_Date = "2020-02-03"
+-- where ISBN = "1234512345";
+
+-- insert into write_ values ("77777" ,"1010101010");
+    
+   -- insert into write_ select author.ID, ISBN from author, book
+ --  where book.ISBN = author.BOOK_ISBN AND author.ID not in( select AuthorID from write_) and ISBN not in( select ISBN from book);
+    
+ -- insert into members
+-- values ('44444','0451500759');
+-- SELECT members.ID As Member_ID,
+--  members.Phone As Member_Phone,
+--  ISBN ,
+--  Titles, 
+-- Fname As Author_First_Name, 
+-- Lname As Author_Last_Name,
+--  PublisherName, 
+--  Borrow_Date, 
+--  Borrow_return
+
+-- FROM members, book, author, has, write_, publisher
+
+-- WHERE has.MemberID = members.ID AND author.ID = write_.AuthorID AND 
+-- write_.BOOK_ISBN = ISBN AND Pname = PublisherName AND write_.BOOK_ISBN = ISBN;
+   --  select AuthorID
+--     from write_;
+--     
+--     select ISBN
+--     from book;
+    
+
+ -- insert into has
+--  values ("2019-08-04", "2019-08-30", "44444", "1010101010");
+
+-- update Has
+-- set Borrow_Return = "2010-11-11"
+-- where has.MemberID = "33333";
+
+-- delete from book
+-- where ISBN = "011111";
+
+
+SELECT * FROM library.book;
+SELECT * FROM library.author;
+SELECT * FROM library.publisher;
+SELECT * FROM library.members;
+SELECT * FROM library.write_;
+SELECT * FROM library.has;
+SELECT * FROM library.manager;
+SELECT * FROM library.reception;
